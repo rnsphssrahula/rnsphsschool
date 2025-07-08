@@ -3,97 +3,157 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gallery - RNSP Inter College</title>
+  <title>Event Gallery - RNSP Inter College</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #f1f8e9, #e0f7fa);
       margin: 0;
       padding: 0;
-      background: linear-gradient(to right, #e0f7fa, #f1f8e9);
     }
     h1 {
       text-align: center;
+      padding: 30px;
       color: #2c3e50;
-      padding: 30px 10px 10px;
       font-size: 36px;
     }
+
+    .tabs {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .tabs button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 20px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+    .tabs button:hover, .tabs button.active {
+      background: #0056b3;
+    }
+
     .gallery-container {
-      display: grid;
+      display: none;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      padding: 20px;
       max-width: 1100px;
       margin: auto;
+      padding: 20px;
     }
-    .gallery-item {
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
-      cursor: pointer;
+
+    .gallery-container.active {
+      display: grid;
     }
-    .gallery-item:hover {
-      transform: scale(1.03);
-    }
-    .gallery-item img {
+
+    .gallery-container img {
       width: 100%;
       height: 200px;
       object-fit: cover;
-      display: block;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .gallery-container img:hover {
+      transform: scale(1.05);
     }
 
     /* Lightbox */
     .lightbox {
       display: none;
       position: fixed;
-      z-index: 999;
       top: 0; left: 0;
       width: 100%; height: 100%;
       background: rgba(0,0,0,0.8);
       justify-content: center;
       align-items: center;
+      z-index: 1000;
     }
+
     .lightbox img {
       max-width: 90%;
       max-height: 90%;
-      border-radius: 10px;
-      border: 5px solid #fff;
+      border: 5px solid white;
+      border-radius: 8px;
     }
   </style>
 </head>
 <body>
 
-  <h1>📸 RNSP Inter College Gallery</h1>
+<h1>📸 RNSP Inter College – Event Gallery</h1>
 
-  <div class="gallery-container">
-    <div class="gallery-item"><img src="images/img1.jpg" alt="School Event"></div>
-    <div class="gallery-item"><img src="images/img2.jpg" alt="Cultural Program"></div>
-    <div class="gallery-item"><img src="images/img3.jpg" alt="Students Activity"></div>
-    <div class="gallery-item"><img src="images/img4.jpg" alt="Classroom"></div>
-    <div class="gallery-item"><img src="images/img5.jpg" alt="Science Lab"></div>
-    <div class="gallery-item"><img src="images/img6.jpg" alt="Annual Function"></div>
-  </div>
+<div class="tabs">
+  <button class="tab-button active" data-tab="annual">Annual Day</button>
+  <button class="tab-button" data-tab="sports">Sports Day</button>
+  <button class="tab-button" data-tab="science">Science Fair</button>
+</div>
 
-  <div class="lightbox" id="lightbox">
-    <img id="lightbox-img" src="">
-  </div>
+<!-- ANNUAL DAY -->
+<div id="annual" class="gallery-container active">
+  <img src="images/annual/img1.jpg" alt="Annual Day 1">
+  <img src="images/annual/img2.jpg" alt="Annual Day 2">
+  <img src="images/annual/img3.jpg" alt="Annual Day 3">
+</div>
 
-  <script>
-    const images = document.querySelectorAll(".gallery-item img");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
+<!-- SPORTS DAY -->
+<div id="sports" class="gallery-container">
+  <img src="images/sports/img1.jpg" alt="Sports Day 1">
+  <img src="images/sports/img2.jpg" alt="Sports Day 2">
+  <img src="images/sports/img3.jpg" alt="Sports Day 3">
+</div>
 
-    images.forEach(img => {
-      img.addEventListener("click", () => {
-        lightbox.style.display = "flex";
-        lightboxImg.src = img.src;
-      });
+<!-- SCIENCE FAIR -->
+<div id="science" class="gallery-container">
+  <img src="images/science/img1.jpg" alt="Science Fair 1">
+  <img src="images/science/img2.jpg" alt="Science Fair 2">
+  <img src="images/science/img3.jpg" alt="Science Fair 3">
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <img id="lightbox-img" src="">
+</div>
+
+<script>
+  // Tab functionality
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const galleries = document.querySelectorAll('.gallery-container');
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active classes
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      galleries.forEach(gallery => gallery.classList.remove('active'));
+
+      // Add active to current
+      button.classList.add('active');
+      const selected = button.getAttribute('data-tab');
+      document.getElementById(selected).classList.add('active');
     });
+  });
 
-    lightbox.addEventListener("click", () => {
-      lightbox.style.display = "none";
+  // Lightbox
+  const images = document.querySelectorAll(".gallery-container img");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  images.forEach(img => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = img.src;
     });
-  </script>
+  });
+
+  lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+</script>
 
 </body>
 </html>

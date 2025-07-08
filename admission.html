@@ -7,114 +7,124 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      background-color: #f0f2f5;
       padding: 20px;
+      margin: 0;
     }
     h1 {
       text-align: center;
       color: #2c3e50;
     }
     form {
-      max-width: 500px;
+      max-width: 600px;
       margin: auto;
       background: #fff;
       padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     input, select {
       width: 100%;
       padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
+      margin: 8px 0;
       border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="tel"]::placeholder {
+      color: #aaa;
     }
     button {
-      background: #2980b9;
+      background-color: #007bff;
       color: white;
       padding: 12px;
       border: none;
-      border-radius: 5px;
+      border-radius: 4px;
       cursor: pointer;
       font-size: 16px;
+      width: 100%;
     }
-    #thankYouMessage {
+    button:hover {
+      background-color: #0056b3;
+    }
+    #thankYouPage {
       display: none;
       text-align: center;
-      padding: 50px;
-      font-size: 24px;
-      color: #27ae60;
+      padding: 60px;
     }
     .thumb {
-      font-size: 50px;
+      font-size: 64px;
       animation: bounce 1s infinite;
     }
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
+      50% { transform: translateY(-20px); }
     }
   </style>
 </head>
 <body>
-  <h1>Admission Form</h1>
-  <form id="admissionForm">
-    <input type="text" name="name" placeholder="Student Name *" required>
-    <input type="date" name="dob" placeholder="Date of Birth *" required>
-    <select name="gender" required>
-      <option value="">Select Gender *</option>
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
-    </select>
-    <select name="class" required>
-      <option value="">Select Class for Admission *</option>
-      <option value="Nur">Nur</option>
-      <option value="LKG">LKG</option>
-      <option value="UKG">UKG</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-    </select>
-    <input type="text" name="previousSchool" placeholder="Previous School *" required>
-    <input type="text" name="fatherName" placeholder="Father's Name *" required>
-    <input type="text" name="motherName" placeholder="Mother's Name *" required>
-    <input type="tel" name="phone" placeholder="Phone Number *" required pattern="[0-9]{10}" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-    <select name="district" required>
-      <option value="">Select District</option>
-      <option value="Lucknow">Lucknow</option>
-      <option value="Kanpur">Kanpur</option>
-      <option value="Varanasi">Varanasi</option>
-      <option value="Agra">Agra</option>
-      <option value="Prayagraj">Prayagraj</option>
-      <option value="Gorakhpur">Gorakhpur</option>
-      <option value="Meerut">Meerut</option>
-      <option value="Bareilly">Bareilly</option>
-      <option value="Ayodhya">Ayodhya</option>
-      <!-- Add all UP districts as needed -->
-    </select>
-    <button type="submit">Submit</button>
-  </form>
 
-  <div id="thankYouMessage">
+  <div id="formPage">
+    <h1>Admission Form</h1>
+    <form id="admissionForm">
+      <input type="text" name="name" placeholder="Student Name *" required>
+      <input type="date" name="dob" required>
+      <select name="gender" required>
+        <option value="">Select Gender *</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+      <select name="class" required>
+        <option value="">Select Class *</option>
+        <option value="Nur">Nur</option>
+        <option value="LKG">LKG</option>
+        <option value="UKG">UKG</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+      <input type="text" name="previousSchool" placeholder="Previous School *" required>
+      <input type="text" name="fatherName" placeholder="Father's Name *" required>
+      <input type="text" name="motherName" placeholder="Mother's Name *" required>
+      <input type="tel" name="phone" placeholder="+91 Phone Number *" required pattern="[0-9]{10}" maxlength="10">
+      <select name="district" required>
+        <option value="">Select District</option>
+        <option value="Lucknow">Lucknow</option>
+        <option value="Kanpur">Kanpur</option>
+        <option value="Varanasi">Varanasi</option>
+        <option value="Agra">Agra</option>
+        <option value="Prayagraj">Prayagraj</option>
+        <option value="Bareilly">Bareilly</option>
+        <option value="Gorakhpur">Gorakhpur</option>
+        <option value="Ayodhya">Ayodhya</option>
+        <!-- Add more districts as needed -->
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div id="thankYouPage">
     <div class="thumb">👍</div>
-    <p>Thank you for submitting the admission form!</p>
+    <h2>Thank you for submitting the admission form!</h2>
   </div>
 
   <script>
     const form = document.getElementById("admissionForm");
-    const thankYou = document.getElementById("thankYouMessage");
+    const thankYouPage = document.getElementById("thankYouPage");
+    const formPage = document.getElementById("formPage");
 
     form.addEventListener("submit", function(e) {
       e.preventDefault();
-      const data = new FormData(form);
+
+      const formData = new FormData(form);
       const params = new URLSearchParams();
-      for (const pair of data.entries()) {
+      for (const pair of formData.entries()) {
         params.append(pair[0], pair[1]);
       }
 
@@ -124,13 +134,16 @@
       })
       .then(response => response.text())
       .then(data => {
-        form.style.display = "none";
-        thankYou.style.display = "block";
+        formPage.style.display = "none";
+        thankYouPage.style.display = "block";
+        form.reset();
       })
       .catch(error => {
         alert("❌ Submission failed! Please try again.");
+        console.error(error);
       });
     });
   </script>
+
 </body>
 </html>

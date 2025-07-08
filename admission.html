@@ -72,6 +72,7 @@
         <option value="">Select Gender *</option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
+        <option value="Other">Other</option>
       </select>
       <select name="class" required>
         <option value="">Select Class *</option>
@@ -88,13 +89,23 @@
         <option value="8">8</option>
         <option value="9">9</option>
         <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
       </select>
       <input type="text" name="previousSchool" placeholder="Previous School *" required>
+      <input type="text" name="previousClass" placeholder="Previous Class">
+      <input type="text" name="aadhaar" placeholder="Aadhaar Number">
       <input type="text" name="fatherName" placeholder="Father's Name *" required>
       <input type="text" name="motherName" placeholder="Mother's Name *" required>
+      <input type="text" name="guardianName" placeholder="Guardian's Name (if any)">
+      <input type="text" name="occupation" placeholder="Occupation of Parent/Guardian">
       <input type="tel" name="phone" placeholder="+91 Phone Number *" required pattern="[0-9]{10}" maxlength="10">
+      <input type="tel" name="altPhone" placeholder="Alternate Phone">
+      <input type="email" name="email" placeholder="Email ID">
+      <input type="text" name="address" placeholder="Full Address">
       <select name="district" required>
         <option value="">Select District</option>
+        <option value="Hardoi">Hardoi</option>
         <option value="Lucknow">Lucknow</option>
         <option value="Kanpur">Kanpur</option>
         <option value="Varanasi">Varanasi</option>
@@ -103,8 +114,9 @@
         <option value="Bareilly">Bareilly</option>
         <option value="Gorakhpur">Gorakhpur</option>
         <option value="Ayodhya">Ayodhya</option>
-        <!-- Add more districts as needed -->
+        <!-- Add more UP districts here -->
       </select>
+      <input type="text" name="pincode" placeholder="Pin Code">
       <button type="submit">Submit</button>
     </form>
   </div>
@@ -128,7 +140,7 @@
         params.append(pair[0], pair[1]);
       }
 
-      fetch("https://script.google.com/macros/s/AKfycbwGuJjDO4-xlZjs7dyPt75Oki5uE7mYUf0h3d5zHahGCmtp-Vb5yJ_lrYMzwYqVZcTbgw/exec", {
+      fetch("https://script.google.com/macros/s/YOUR_DEPLOYED_SCRIPT_ID/exec", {
         method: "POST",
         body: params
       })

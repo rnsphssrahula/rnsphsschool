@@ -1,88 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gallery | RNSP Inter College</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery - RNSP Inter College</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
+      background: #f9f9f9;
       margin: 0;
       padding: 0;
     }
-    header {
+    h1 {
       text-align: center;
-      background-color: #007bff;
-      color: white;
-      padding: 20px 10px;
+      color: #2c3e50;
+      padding: 20px;
     }
-    nav a {
-      margin: 0 15px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    h2 {
-      text-align: center;
-      margin-top: 30px;
-      color: #333;
-    }
-    .gallery {
+    .gallery-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 15px;
       padding: 20px;
       max-width: 1200px;
       margin: auto;
     }
-    .gallery img {
+    .gallery-container img {
       width: 100%;
-      height: auto;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
+      transition: 0.3s;
+      cursor: pointer;
     }
-    .gallery img:hover {
+    .gallery-container img:hover {
       transform: scale(1.05);
     }
-    footer {
-      text-align: center;
-      padding: 15px;
-      background-color: #333;
-      color: #fff;
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border: 5px solid white;
+      border-radius: 8px;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>📸 RNSP Inter College Gallery</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="admission.html">Admission</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+  <h1>📸 RNSP Inter College Gallery</h1>
 
-  <h2>Our School Memories</h2>
-
-  <div class="gallery">
-    <img src="images/img1.jpg" alt="Annual Function">
-    <img src="images/img2.jpg" alt="Science Fair">
-    <img src="images/img3.jpg" alt="Sports Day">
-    <img src="images/img4.jpg" alt="Cultural Program">
-    <img src="images/img5.jpg" alt="Classroom">
-    <img src="images/img6.jpg" alt="Morning Assembly">
+  <div class="gallery-container">
+    <img src="images/img1.jpg" alt="School Event">
+    <img src="images/img2.jpg" alt="Cultural Program">
+    <img src="images/img3.jpg" alt="Students Activity">
+    <img src="images/img4.jpg" alt="Classroom">
+    <img src="images/img5.jpg" alt="Science Lab">
+    <img src="images/img6.jpg" alt="Annual Function">
+    <!-- Add more images here -->
   </div>
 
-  <footer>
-    © 2025 RNSP Inter College | Designed with ❤️ by Vishal Sharma
-  </footer>
+  <div class="lightbox" id="lightbox">
+    <img id="lightbox-img" src="">
+  </div>
+
+  <script>
+    const images = document.querySelectorAll(".gallery-container img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    images.forEach(img => {
+      img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+      });
+    });
+
+    lightbox.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+  </script>
 
 </body>
 </html>

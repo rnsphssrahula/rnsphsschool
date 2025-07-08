@@ -1,93 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Event Gallery - RNSP Inter College</title>
   <style>
     body {
-      <!-- ✅ Add this at the TOP of every page (just after <body>) -->
-<header>
-  <nav class="navbar">
-    <div class="logo">🏫 RNSP Inter College</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="admission.html">Admission</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
-    </ul>
-  </nav>
-</header>
-
-<style>
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #2c3e50;
-    padding: 12px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-
-  .navbar .logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: #fff;
-  }
-
-  .nav-links {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav-links li {
-    margin-left: 20px;
-  }
-
-  .nav-links a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    transition: color 0.3s;
-  }
-
-  .nav-links a:hover {
-    color: #00ffff;
-  }
-
-  /* Mobile responsive */
-  @media (max-width: 768px) {
-    .nav-links {
-      flex-direction: column;
-      background: #2c3e50;
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 200px;
-      display: none;
-    }
-
-    .nav-links li {
-      margin: 15px 0;
-      text-align: center;
-    }
-
-    .navbar.active .nav-links {
-      display: flex;
-    }
-  }
-</style>
-
       font-family: Arial, sans-serif;
       background: linear-gradient(to right, #f1f8e9, #e0f7fa);
       margin: 0;
       padding: 0;
     }
+
+    /* Navbar styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #2c3e50;
+      padding: 12px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      margin-left: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00ffff;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        background: #2c3e50;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        display: none;
+      }
+
+      .nav-links li {
+        margin: 15px 0;
+        text-align: center;
+      }
+
+      .navbar.active .nav-links {
+        display: flex;
+      }
+    }
+
     h1 {
       text-align: center;
       padding: 30px;
@@ -99,6 +84,7 @@
       text-align: center;
       margin-bottom: 20px;
     }
+
     .tabs button {
       padding: 10px 20px;
       margin: 5px;
@@ -110,7 +96,9 @@
       font-size: 16px;
       transition: 0.3s;
     }
-    .tabs button:hover, .tabs button.active {
+
+    .tabs button:hover,
+    .tabs button.active {
       background: #0056b3;
     }
 
@@ -132,7 +120,7 @@
       height: 200px;
       object-fit: cover;
       border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
       cursor: pointer;
       transition: transform 0.3s;
     }
@@ -141,13 +129,14 @@
       transform: scale(1.05);
     }
 
-    /* Lightbox */
     .lightbox {
       display: none;
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
       justify-content: center;
       align-items: center;
       z-index: 1000;
@@ -163,74 +152,89 @@
 </head>
 <body>
 
-<h1>📸 RNSP Inter College – Event Gallery</h1>
+  <!-- ✅ Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">🏫 RNSP Inter College</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="admission.html">Admission</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<div class="tabs">
-  <button class="tab-button active" data-tab="annual">Annual Day</button>
-  <button class="tab-button" data-tab="sports">Sports Day</button>
-  <button class="tab-button" data-tab="science">Science Fair</button>
-</div>
+  <!-- ✅ Page Heading -->
+  <h1>📸 RNSP Inter College – Event Gallery</h1>
 
-<!-- ANNUAL DAY -->
-<div id="annual" class="gallery-container active">
-  <img src="images/annual/img1.jpg" alt="Annual Day 1">
-  <img src="images/annual/img2.jpg" alt="Annual Day 2">
-  <img src="images/annual/img3.jpg" alt="Annual Day 3">
-</div>
+  <!-- ✅ Tabs -->
+  <div class="tabs">
+    <button class="tab-button active" data-tab="annual">Annual Day</button>
+    <button class="tab-button" data-tab="sports">Sports Day</button>
+    <button class="tab-button" data-tab="science">Science Fair</button>
+  </div>
 
-<!-- SPORTS DAY -->
-<div id="sports" class="gallery-container">
-  <img src="images/sports/img1.jpg" alt="Sports Day 1">
-  <img src="images/sports/img2.jpg" alt="Sports Day 2">
-  <img src="images/sports/img3.jpg" alt="Sports Day 3">
-</div>
+  <!-- ✅ Annual Day Images -->
+  <div id="annual" class="gallery-container active">
+    <img src="images/annual/img1.jpg" alt="Annual Day 1">
+    <img src="images/annual/img2.jpg" alt="Annual Day 2">
+    <img src="images/annual/img3.jpg" alt="Annual Day 3">
+  </div>
 
-<!-- SCIENCE FAIR -->
-<div id="science" class="gallery-container">
-  <img src="images/science/img1.jpg" alt="Science Fair 1">
-  <img src="images/science/img2.jpg" alt="Science Fair 2">
-  <img src="images/science/img3.jpg" alt="Science Fair 3">
-</div>
+  <!-- ✅ Sports Day Images -->
+  <div id="sports" class="gallery-container">
+    <img src="images/sports/img1.jpg" alt="Sports Day 1">
+    <img src="images/sports/img2.jpg" alt="Sports Day 2">
+    <img src="images/sports/img3.jpg" alt="Sports Day 3">
+  </div>
 
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-  <img id="lightbox-img" src="">
-</div>
+  <!-- ✅ Science Fair Images -->
+  <div id="science" class="gallery-container">
+    <img src="images/science/img1.jpg" alt="Science Fair 1">
+    <img src="images/science/img2.jpg" alt="Science Fair 2">
+    <img src="images/science/img3.jpg" alt="Science Fair 3">
+  </div>
 
-<script>
-  // Tab functionality
-  const tabButtons = document.querySelectorAll('.tab-button');
-  const galleries = document.querySelectorAll('.gallery-container');
+  <!-- ✅ Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <img id="lightbox-img" src="">
+  </div>
 
-  tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      // Remove active classes
-      tabButtons.forEach(btn => btn.classList.remove('active'));
-      galleries.forEach(gallery => gallery.classList.remove('active'));
+  <!-- ✅ Script -->
+  <script>
+    // Tabs
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const galleries = document.querySelectorAll('.gallery-container');
 
-      // Add active to current
-      button.classList.add('active');
-      const selected = button.getAttribute('data-tab');
-      document.getElementById(selected).classList.add('active');
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        galleries.forEach(gallery => gallery.classList.remove('active'));
+
+        button.classList.add('active');
+        const selected = button.getAttribute('data-tab');
+        document.getElementById(selected).classList.add('active');
+      });
     });
-  });
 
-  // Lightbox
-  const images = document.querySelectorAll(".gallery-container img");
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
+    // Lightbox
+    const images = document.querySelectorAll(".gallery-container img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
 
-  images.forEach(img => {
-    img.addEventListener("click", () => {
-      lightbox.style.display = "flex";
-      lightboxImg.src = img.src;
+    images.forEach(img => {
+      img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+      });
     });
-  });
 
-  lightbox.addEventListener("click", () => {
-    lightbox.style.display = "none";
-  });
-</script>
+    lightbox.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+  </script>
 
 </body>
 </html>

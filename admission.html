@@ -1,97 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Admission Form - RNSP Inter College</title>
   <style>
     body {
-      <!-- ✅ Add this at the TOP of every page (just after <body>) -->
-<header>
-  <nav class="navbar">
-    <div class="logo">🏫 RNSP Inter College</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="admission.html">Admission</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
-    </ul>
-  </nav>
-</header>
-
-<style>
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #2c3e50;
-    padding: 12px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-
-  .navbar .logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: #fff;
-  }
-
-  .nav-links {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav-links li {
-    margin-left: 20px;
-  }
-
-  .nav-links a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    transition: color 0.3s;
-  }
-
-  .nav-links a:hover {
-    color: #00ffff;
-  }
-
-  /* Mobile responsive */
-  @media (max-width: 768px) {
-    .nav-links {
-      flex-direction: column;
-      background: #2c3e50;
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 200px;
-      display: none;
-    }
-
-    .nav-links li {
-      margin: 15px 0;
-      text-align: center;
-    }
-
-    .navbar.active .nav-links {
-      display: flex;
-    }
-  }
-</style>
-
       font-family: Arial, sans-serif;
       background-color: #f0f2f5;
       padding: 20px;
       margin: 0;
     }
+
     h1 {
       text-align: center;
       color: #2c3e50;
     }
+
     form {
       max-width: 600px;
       margin: auto;
@@ -100,6 +25,7 @@
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
+
     input, select {
       width: 100%;
       padding: 10px;
@@ -107,9 +33,11 @@
       border: 1px solid #ccc;
       border-radius: 4px;
     }
+
     input[type="tel"]::placeholder {
       color: #aaa;
     }
+
     button {
       background-color: #007bff;
       color: white;
@@ -120,26 +48,106 @@
       font-size: 16px;
       width: 100%;
     }
+
     button:hover {
       background-color: #0056b3;
     }
+
     #thankYouPage {
       display: none;
       text-align: center;
       padding: 60px;
     }
+
     .thumb {
       font-size: 64px;
       animation: bounce 1s infinite;
     }
+
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-20px); }
+    }
+
+    /* Navigation bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #2c3e50;
+      padding: 12px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      margin-left: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00ffff;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        background: #2c3e50;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        display: none;
+      }
+
+      .nav-links li {
+        margin: 15px 0;
+        text-align: center;
+      }
+
+      .navbar.active .nav-links {
+        display: flex;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- ✅ Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">🏫 RNSP Inter College</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="admission.html">Admission</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ✅ Form Section -->
   <div id="formPage">
     <h1>Admission Form</h1>
     <form id="admissionForm">
@@ -191,18 +199,19 @@
         <option value="Bareilly">Bareilly</option>
         <option value="Gorakhpur">Gorakhpur</option>
         <option value="Ayodhya">Ayodhya</option>
-        <!-- Add more UP districts here -->
       </select>
       <input type="text" name="pincode" placeholder="Pin Code">
       <button type="submit">Submit</button>
     </form>
   </div>
 
+  <!-- ✅ Thank You Section -->
   <div id="thankYouPage">
     <div class="thumb">👍</div>
     <h2>Thank you for submitting the admission form!</h2>
   </div>
 
+  <!-- ✅ Script to Submit Data -->
   <script>
     const form = document.getElementById("admissionForm");
     const thankYouPage = document.getElementById("thankYouPage");

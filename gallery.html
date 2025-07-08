@@ -6,6 +6,83 @@
   <title>Event Gallery - RNSP Inter College</title>
   <style>
     body {
+      <!-- ✅ Add this at the TOP of every page (just after <body>) -->
+<header>
+  <nav class="navbar">
+    <div class="logo">🏫 RNSP Inter College</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="admission.html">Admission</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .navbar .logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links li {
+    margin-left: 20px;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: #00ffff;
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .nav-links {
+      flex-direction: column;
+      background: #2c3e50;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 200px;
+      display: none;
+    }
+
+    .nav-links li {
+      margin: 15px 0;
+      text-align: center;
+    }
+
+    .navbar.active .nav-links {
+      display: flex;
+    }
+  }
+</style>
+
       font-family: Arial, sans-serif;
       background: linear-gradient(to right, #f1f8e9, #e0f7fa);
       margin: 0;

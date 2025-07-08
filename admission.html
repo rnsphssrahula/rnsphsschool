@@ -1,39 +1,117 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Admission Form - RNSP Inter College</title>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admission Form - RNSP Inter College</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #2980b9;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    #thankYouMessage {
+      display: none;
+      text-align: center;
+      padding: 50px;
+      font-size: 24px;
+      color: #27ae60;
+    }
+    .thumb {
+      font-size: 50px;
+      animation: bounce 1s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+  </style>
 </head>
 <body>
   <h1>Admission Form</h1>
   <form id="admissionForm">
-    <input type="text" name="name" placeholder="Student Name" required><br>
-    <input type="text" name="dob" placeholder="Date of Birth (DD/MM/YYYY)" required><br>
-    <input type="text" name="gender" placeholder="Gender" required><br>
-    <input type="text" name="class" placeholder="Class for Admission" required><br>
-    <input type="text" name="previousSchool" placeholder="Previous School"><br>
-    <input type="text" name="previousClass" placeholder="Previous Class"><br>
-    <input type="text" name="aadhaar" placeholder="Aadhaar Number"><br>
-    <input type="text" name="fatherName" placeholder="Father's Name" required><br>
-    <input type="text" name="motherName" placeholder="Mother's Name" required><br>
-    <input type="text" name="guardianName" placeholder="Guardian Name"><br>
-    <input type="text" name="occupation" placeholder="Occupation"><br>
-    <input type="text" name="phone" placeholder="Phone Number" required><br>
-    <input type="text" name="altPhone" placeholder="Alternate Phone"><br>
-    <input type="email" name="email" placeholder="Email ID"><br>
-    <input type="text" name="address" placeholder="Full Address" required><br>
-    <input type="text" name="city" placeholder="City" required><br>
-    <input type="text" name="district" placeholder="District" required><br>
-    <input type="text" name="pincode" placeholder="Pin Code" required><br><br>
+    <input type="text" name="name" placeholder="Student Name *" required>
+    <input type="date" name="dob" placeholder="Date of Birth *" required>
+    <select name="gender" required>
+      <option value="">Select Gender *</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+    <select name="class" required>
+      <option value="">Select Class for Admission *</option>
+      <option value="Nur">Nur</option>
+      <option value="LKG">LKG</option>
+      <option value="UKG">UKG</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+    <input type="text" name="previousSchool" placeholder="Previous School *" required>
+    <input type="text" name="fatherName" placeholder="Father's Name *" required>
+    <input type="text" name="motherName" placeholder="Mother's Name *" required>
+    <input type="tel" name="phone" placeholder="Phone Number *" required pattern="[0-9]{10}" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+    <select name="district" required>
+      <option value="">Select District</option>
+      <option value="Lucknow">Lucknow</option>
+      <option value="Kanpur">Kanpur</option>
+      <option value="Varanasi">Varanasi</option>
+      <option value="Agra">Agra</option>
+      <option value="Prayagraj">Prayagraj</option>
+      <option value="Gorakhpur">Gorakhpur</option>
+      <option value="Meerut">Meerut</option>
+      <option value="Bareilly">Bareilly</option>
+      <option value="Ayodhya">Ayodhya</option>
+      <!-- Add all UP districts as needed -->
+    </select>
     <button type="submit">Submit</button>
   </form>
 
-  <p id="responseMsg"></p>
+  <div id="thankYouMessage">
+    <div class="thumb">👍</div>
+    <p>Thank you for submitting the admission form!</p>
+  </div>
 
   <script>
-    document.getElementById("admissionForm").addEventListener("submit", function(e) {
+    const form = document.getElementById("admissionForm");
+    const thankYou = document.getElementById("thankYouMessage");
+
+    form.addEventListener("submit", function(e) {
       e.preventDefault();
-      const form = e.target;
       const data = new FormData(form);
       const params = new URLSearchParams();
       for (const pair of data.entries()) {
@@ -46,11 +124,11 @@
       })
       .then(response => response.text())
       .then(data => {
-        document.getElementById("responseMsg").innerText = "✅ Form submitted successfully!";
-        form.reset();
+        form.style.display = "none";
+        thankYou.style.display = "block";
       })
       .catch(error => {
-        document.getElementById("responseMsg").innerText = "❌ Submission failed!";
+        alert("❌ Submission failed! Please try again.");
       });
     });
   </script>

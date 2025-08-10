@@ -5,6 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>RNSP Inter College | Home</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Simple login box styling */
+    .login-section {
+      background: #f5f5f5;
+      padding: 40px 20px;
+    }
+    .login-box {
+      max-width: 400px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .login-box button {
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .login-box button:hover {
+      background: #0056b3;
+    }
+  </style>
 </head>
 <body>
 
@@ -30,6 +68,16 @@
     <h1>Welcome to RNSP Inter College</h1>
     <p>Empowering Students with Knowledge, Character & Innovation</p>
     <a href="admission.html" class="btn-primary">Apply Now</a>
+  </div>
+</section>
+
+<!-- Login Section -->
+<section class="login-section">
+  <div class="login-box">
+    <h2>Login</h2>
+    <input id="username" placeholder="Username">
+    <input id="password" placeholder="Password" type="password">
+    <button onclick="login()">Login</button>
   </div>
 </section>
 
@@ -67,6 +115,30 @@
     <p>© 2025 RNSP Inter College | Designed with ❤️ by Vishal Sharma</p>
   </div>
 </footer>
+
+<!-- JavaScript for Login -->
+<script>
+  function login() {
+    fetch("YOUR_API_URL", {   // यहां अपना Google Apps Script का URL डालना है
+      method: "POST",
+      body: JSON.stringify({
+        username: document.getElementById('username').value,
+        password: document.getElementById('password').value
+      })
+    })
+    .then(r => r.json())
+    .then(data => {
+      if (data.success) {
+        if (data.role === "Student") window.location.href = "student.html";
+        else if (data.role === "Staff") window.location.href = "staff.html";
+        else if (data.role === "Admin") window.location.href = "admin.html";
+      } else {
+        alert("Login Failed! Please check your username or password.");
+      }
+    })
+    .catch(err => alert("Error: " + err));
+  }
+</script>
 
 </body>
 </html>

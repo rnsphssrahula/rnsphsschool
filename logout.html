@@ -14,13 +14,11 @@
             color: #333; 
             margin-top: 20px; 
         }
-        iframe {
+        video {
             margin-top: 20px;
             width: 80%;
             max-width: 600px;
-            height: 340px;
             border-radius: 10px;
-            border: none;
         }
         table { 
             margin: 20px auto; 
@@ -51,14 +49,13 @@
 <body>
 
 <h1>Thank You for Visiting!</h1>
-<p>Enjoy this video and a quick game before you go 😄</p>
+<p>Enjoy a quick game before you go 😄</p>
 
-<!-- YouTube Autoplay Video -->
-<iframe 
-    src="https://youtu.be/0UEUEnfty64?si=nsdzdLpsZS4iLXrK" 
-    allow="autoplay; encrypted-media" 
-    allowfullscreen>
-</iframe>
+<!-- Autoplay Video -->
+<video autoplay muted loop>
+    <source src="visu.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
 
 <!-- Tic Tac Toe -->
 <table>

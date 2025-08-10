@@ -119,8 +119,11 @@
 <!-- JavaScript for Login -->
 <script>
   function login() {
-    fetch("YOUR_API_URL", {https://script.google.com/macros/s/AKfycbw264_lpcom2wPmXbRf8PoGga4DFCtem65gFFHKuIF9z11ZzCjujfyIGUFkWtMYaVswFA/exec
+    fetch("https://script.google.com/macros/s/AKfycbw264_lpcom2wPmXbRf8PoGga4DFCtem65gFFHKuIF9z11ZzCjujfyIGUFkWtMYaVswFA/exec", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
         username: document.getElementById('username').value,
         password: document.getElementById('password').value

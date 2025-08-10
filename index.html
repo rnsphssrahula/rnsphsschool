@@ -1,0 +1,215 @@
+<!-- Save as index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>King-style School — Home</title>
+
+  <!-- Basic styling (put in style.css if you prefer) -->
+  <style>
+    :root{
+      --primary:#0b56a3; /* blue */
+      --accent:#f3a712;  /* accent */
+      --muted:#666;
+      --bg:#f7f9fb;
+      --maxw:1100px;
+      --radius:10px;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:#111;line-height:1.45}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+
+    /* Header */
+    header.site-header{background:#fff;box-shadow:0 2px 6px rgba(0,0,0,0.06);position:sticky;top:0;z-index:50}
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px}
+    .brand .logo{font-size:22px}
+    nav.main-nav ul{display:flex;gap:14px;list-style:none;margin:0;padding:0}
+    nav.main-nav a{text-decoration:none;color:#222;padding:8px 10px;border-radius:6px}
+    nav.main-nav a.cta{background:var(--primary);color:#fff}
+    @media (max-width:760px){
+      nav.main-nav{display:none}
+      .hamb{display:inline-block}
+    }
+
+    /* Hero */
+    .hero{background:linear-gradient(180deg, #eef6ff 0%, #fff 60%);padding:56px 0}
+    .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+    .hero h1{font-size:34px;margin:0 0 12px}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .hero .cta-group{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:600}
+    .btn.primary{background:var(--primary);color:#fff}
+    .btn.ghost{border:1px solid #ddd;background:#fff;color:#111}
+
+    /* Card on right */
+    .hero-card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(11,86,163,0.06)}
+    .hero-card h3{margin:0 0 8px;font-size:18px}
+    .hero-card small{color:var(--muted)}
+
+    /* Stats */
+    .stats{display:flex;gap:12px;margin:26px 0}
+    .stat{flex:1;background:#fff;padding:18px;border-radius:10px;text-align:center;box-shadow:0 3px 12px rgba(0,0,0,0.04)}
+    .stat h4{margin:0;font-size:20px}
+    .stat p{margin:6px 0 0;color:var(--muted)}
+
+    /* Testimonials slider */
+    .carousel{margin:28px 0}
+    .test-card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.04)}
+    .test-text{font-size:15px;color:#222;margin-bottom:10px}
+    .test-author{font-weight:700;color:var(--primary)}
+
+    /* Footer */
+    footer.site-footer{background:#0b2340;color:#fff;padding:28px 0;margin-top:40px}
+    footer .row{display:flex;gap:20px;flex-wrap:wrap}
+    footer a{color:#cfe6ff;text-decoration:none;}
+    .small{font-size:13px;color:#c4d9ff}
+
+    /* small utilities */
+    .center{text-align:center}
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container topbar">
+      <div class="brand">
+        <div class="logo">🏰</div>
+        <div>
+          <div style="font-size:14px;color:var(--muted)">Private Christian School</div>
+          <div>King-style Schools</div>
+        </div>
+      </div>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#" aria-current="page">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Admissions</a></li>
+          <li><a href="#">Academics</a></li>
+          <li><a href="#" class="cta">Apply Now</a></li>
+        </ul>
+      </nav>
+
+      <div class="hamb" style="display:none">☰</div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>Welcome to King-style Schools</h1>
+        <p>High-quality college-preparatory education from early learning through grade 12. A caring community where every student is known.</p>
+
+        <div class="cta-group">
+          <a class="btn primary" href="#">Get Started</a>
+          <a class="btn ghost" href="#">Visit & Tour</a>
+        </div>
+
+        <!-- quick highlights -->
+        <div class="stats" style="margin-top:20px">
+          <div class="stat">
+            <h4>92%</h4>
+            <p>Graduates to higher education</p>
+          </div>
+          <div class="stat">
+            <h4>27%</h4>
+            <p>Families on financial aid</p>
+          </div>
+          <div class="stat">
+            <h4>57</h4>
+            <p>Athletic championships</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Visit Our Campus</h3>
+        <small>19303 Fremont Ave N, Seattle, WA</small>
+        <p style="margin-top:12px;color:var(--muted)">Schedule a campus tour or apply now to join our community.</p>
+        <div style="margin-top:12px">
+          <a class="btn primary" href="#" style="width:100%;display:inline-block;text-align:center">Apply Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Carousel -->
+  <div class="container carousel">
+    <h3>What students & families say</h3>
+    <div id="testimonials" style="display:grid;grid-template-columns:1fr;gap:12px;margin-top:12px">
+      <div class="test-card">
+        <div class="test-text">"I love the relationships I build here — teachers care and encourage me."</div>
+        <div class="test-author">— Will, Grade 9</div>
+      </div>
+      <div class="test-card" style="display:none">
+        <div class="test-text">"Teachers provide a safe space and great advice."</div>
+        <div class="test-author">— Cody, Grade 12</div>
+      </div>
+      <div class="test-card" style="display:none">
+        <div class="test-text">"The community is kind and joyful."</div>
+        <div class="test-author">— Anastasia, Grade 3</div>
+      </div>
+    </div>
+
+    <!-- basic controls -->
+    <div style="margin-top:10px;display:flex;gap:8px">
+      <button onclick="prevTest()">◀ Prev</button>
+      <button onclick="nextTest()">Next ▶</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div style="flex:1;min-width:220px">
+          <h4>King-style Schools</h4>
+          <p class="small">19303 Fremont Ave N, Seattle, WA 98133</p>
+          <p class="small">Phone: (xxx) xxx-xxxx</p>
+        </div>
+        <div style="flex:1;min-width:200px">
+          <h4>Quick Links</h4>
+          <p><a href="#">Admissions</a></p>
+          <p><a href="#">Academics</a></p>
+          <p><a href="#">Contact</a></p>
+        </div>
+        <div style="flex:1;min-width:220px">
+          <h4>Follow</h4>
+          <p><a href="#">Facebook</a> · <a href="#">Instagram</a></p>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;text-align:center;color:#cfe6ff">
+        © 2025 King-style Schools. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Minimal JS for testimonials -->
+  <script>
+    (function(){
+      const container = document.getElementById('testimonials');
+      const cards = Array.from(container.children);
+      let idx = 0;
+      function show(i){
+        cards.forEach((c, j)=> c.style.display = j===i ? 'block' : 'none');
+      }
+      window.nextTest = function(){
+        idx = (idx + 1) % cards.length;
+        show(idx);
+      }
+      window.prevTest = function(){
+        idx = (idx - 1 + cards.length) % cards.length;
+        show(idx);
+      }
+      // auto rotate
+      setInterval(nextTest, 6000);
+      show(0);
+    })();
+  </script>
+</body>
+</html>
